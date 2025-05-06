@@ -2,16 +2,19 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const app = express();
+const { getDirectoryContents } = require("./explorer");
+
+const PORT = process.env.PORT || 3500;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+// Default route redirects to current directory:
 app.get("/", (req, res) => {
 	res.redirect("/expore?path" + __dirname);
 });
 
-const { getDirectoryContents } = require("./explorer");
-
+// Route for exploring directories
 app.get("/explore", (req, res) => {
 	const dirPath = req.query.path;
 	try {

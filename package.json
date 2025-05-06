@@ -1,0 +1,12 @@
+{
+	"name": "file-system-explorer",
+	"version": "1.0.0",
+	"description": "Node.js application that explores and manages local files.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "John Quarmor",
+	"license": "ISC"
+}

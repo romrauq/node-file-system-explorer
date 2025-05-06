@@ -24,3 +24,8 @@ app.get("/explore", (req, res) => {
 		res.status(500).send("Error reading directory: " + err.message);
 	}
 });
+
+// Start the server that listens on the defined port:
+app.listen(PORT, () => {
+	console.log(`File explorer running at http://localhost:${PORT}`);
+});

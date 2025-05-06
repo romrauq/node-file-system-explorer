@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>File Explorer</title>
+		<link rel="stylesheet" href="/styles.css">
+	</head>
+
+	<body>
+		<h1>Exploring: <%= currentPath %>
+		</h1>
+		<ul>
+			<% contents.forEach(item=> { %>
+				<li>
+					<% if (item.isDirectory) { %>
+						<a href="/explore?path=<%= item.fullPath %>">📁 <%= item.name %></a>
+						<% } else { %>
+							📄 <%= item.name %>
+								<% } %>
+				</li>
+				<% }) %>
+		</ul>
+	</body>
+
+</html>

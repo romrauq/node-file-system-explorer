@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 // Default route redirects to current directory:
 app.get("/", (req, res) => {
-	res.redirect("/expore?path" + __dirname);
+	res.redirect("/explore?path=" + encodeURIComponent(__dirname));
 });
 
 // Route for exploring directories

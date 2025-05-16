@@ -19,7 +19,8 @@ app.get("/explore", (req, res) => {
 	const dirPath = req.query.path;
 	try {
 		const contents = getDirectoryContents(dirPath);
-		res.render("index", { contents, currentPath: dirPath });
+		const displayPath = dirPath + "/file_system"; // append it here
+		res.render("index", { contents, currentPath: displayPath });
 	} catch (err) {
 		res.status(500).send("Error reading directory: " + err.message);
 	}

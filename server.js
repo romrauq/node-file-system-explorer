@@ -34,7 +34,7 @@ app.post("/create-file", express.urlencoded({ extended: true }), (req, res) => {
 
 	try {
 		fs.writeFileSync(filePath, ""); // Create empty file
-		res.redirect("/explore?path=" + encodeURIComponent(dirPath));
+		res.redirect("/explore?path=" + encodeURIComponent(__dirname));
 	} catch (err) {
 		res.status(500).send("Error creating file: " + err.message);
 	}
@@ -49,7 +49,7 @@ app.post("/rename-file", express.urlencoded({ extended: true }), (req, res) => {
 
 	try {
 		fs.renameSync(oldPath, newPath);
-		res.redirect("/explore?path=" + encodeURIComponent(dirPath));
+		res.redirect("/explore?path=" + encodeURIComponent(__dirname));
 	} catch (err) {
 		res.status(500).send("Error renaming file: " + err.message);
 	}
@@ -62,7 +62,7 @@ app.post("/delete-file", express.urlencoded({ extended: true }), (req, res) => {
 
 	try {
 		fs.unlinkSync(filePath);
-		res.redirect("/explore?path=" + encodeURIComponent(dirPath));
+		res.redirect("/explore?path=" + encodeURIComponent(__dirname));
 	} catch (err) {
 		res.status(500).send("Error deleting file: " + err.message);
 	}
